@@ -12,11 +12,11 @@ import FloatBtnContent from './floatBtn/FloatBtnContent'
 import FloatBtn from './floatBtn/FloatBtn'
 
 // Styles
-import './../dependencias/icofont.min.css'
-import './../dependencias/app.css'
+import './../dependencias/css/icofont.min.css'
+import './../dependencias/css/app.css'
 // Themes
-import './../dependencias/themeClaro.css'
-import './../dependencias/themeOscuro.css'
+import './../dependencias/css/themeClaro.css'
+import './../dependencias/css/themeOscuro.css'
 
 const App = () => {
 	const [headerLocation, setHeaderLocation] = useState('Portafolio')
