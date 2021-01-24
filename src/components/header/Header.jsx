@@ -1,73 +1,61 @@
 // Dependecias
-import React, { useEffect, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react' /*, { useEffect, useCallback }*/
+import { Link } from 'react-router-dom'
 
 // Componentes
-import HeaderBtnMenu from './HeaderBtnMenu';
-import HeaderNav from './HeaderNav';
+import HeaderNav from './HeaderNav'
+import HeaderNavBtn from './HeaderNavBtn'
 
 import { ASSETS_URL } from './../constans'
 
-const Header = ({ location, tema, menuOpen, onClick }) => {
-    const tagbody = document.querySelector('body')
+const Header = ({ menuOpen, onClick }) => {
+    // const tagbody = document.querySelector('body')
 
-    const handleTemaBody = useCallback(
-        () => {
-            if (tagbody) {
-                if (tema) {
-                    tagbody.classList.add('claro')
-                    tagbody.classList.remove('oscuro')
-                } else {
-                    tagbody.classList.add('oscuro')
-                    tagbody.classList.remove('claro')
-                }
-            }     
-        },
-        [tagbody, tema]
-    )
+    // const handleTemaBody = useCallback(
+    //     () => {
+    //         if (tagbody) {
+    //             if (tema) {
+    //                 tagbody.classList.add('claro')
+    //                 tagbody.classList.remove('oscuro')
+    //             } else {
+    //                 tagbody.classList.add('oscuro')
+    //                 tagbody.classList.remove('claro')
+    //             }
+    //         }     
+    //     },
+    //     [tagbody, tema]
+    // )
 
-    useEffect(() => {
-       handleTemaBody()
-    }, [handleTemaBody])
+    // useEffect(() => {
+    //    handleTemaBody()
+    // }, [handleTemaBody])
 
 
     return (
-        <header id='app-header' className='app-header'>
-        	<nav className='app-header-nav'>
+        <header className='header'>
+        	<div className='header-cont-start'>
+                <div className='header-cont-logo'>
+                    <Link to='/portafolio'>
+                        {/*<img 
+                            src={ `${ASSETS_URL}/logo/gral_${(tema) ? 'claro' : 'oscuro'}.png` }
+                            id='header-location-logo' alt='Gral'
+                        />*/}
 
-                <div className='app-nav-locacion'>
-                    <p className='app-location-item app-logo-cat'>
-                        <Link to='/portafolio'>
-                            <img 
-                                src={ `${ASSETS_URL}/logo/gral_${(tema) ? 'claro' : 'oscuro'}.png` }
-                                id='app-location-logo' alt='Gral'
-                            />
-                        </Link>
-                        <span className='app-location-sep'>|</span>
-                        <span id='app-location'>{ location }</span>
-                    </p>
+                        <img 
+                            src={ `${ASSETS_URL}/logo/gral_claro.png` }
+                            alt='Gral' title='GralWeb - Desarrollo Web'
+                        />
+                    </Link>
                 </div>
+            </div>
 
-                <div id='app-nav-logo' className='app-content-logo app-logo-cat'>
-                    <figure className='app-logo-img'>
-                        <Link to='/portafolio'>
-                            <img 
-                                src={ `${ASSETS_URL}/logo/pwa/${(tema) ? 'claro' : 'oscuro'}/512x512.png` }
-                                title='GralWeb' alt='GralWeb'
-                            />
-                        </Link>
-                    </figure>
-                </div>
-                
-                <HeaderBtnMenu menuState={ menuOpen } eventClick={ onClick } type='open' />
+            <div className='header-cont-end' >
+                <HeaderNavBtn eventClick={ onClick } type='open' />
+            </div>
 
-                <HeaderBtnMenu menuState={ menuOpen } eventClick={ onClick } type='close' />
-
-                <HeaderNav menuState={ menuOpen } eventClick={ onClick } />
-
-            </nav>
+            <HeaderNav menuState={ menuOpen } eventClick={ onClick } />
         </header>
-    );
+    )
 }
 
-export default Header;
+export default Header

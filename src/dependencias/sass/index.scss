@@ -1,6 +1,13 @@
-.app-header {
-    color: #000;
-    .app-header-nav {
-        background: blue;
-    }
-}
+/* Variables */
+@import 'variables.scss';
+
+/* Global */
+@import 'global.scss';
+
+/* Header y sus elementos */ 
+@import './header/header.scss';
+@import './header/header-nav.scss';
+@import './header/header-nav-search.scss';
+@import './header/header-nav-btn.scss';
+
+/* Footer y sus elementos */

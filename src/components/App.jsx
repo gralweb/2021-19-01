@@ -8,59 +8,50 @@ import Main from './main/Main'
 import Routing from './Routing'
 import Footer from './footer/Footer'
 // Float BTN
-import FloatBtnContent from './floatBtn/FloatBtnContent'
-import FloatBtn from './floatBtn/FloatBtn'
+// import FloatBtnContent from './floatBtn/FloatBtnContent'
+// import FloatBtn from './floatBtn/FloatBtn'
 
 // Styles
 import './../dependencias/css/icofont.min.css'
 import './../dependencias/css/app.css'
 // Themes
-import './../dependencias/css/themeClaro.css'
-import './../dependencias/css/themeOscuro.css'
+// import './../dependencias/css/themeClaro.css'
+// import './../dependencias/css/themeOscuro.css'
 
 const App = () => {
-	const [headerLocation, setHeaderLocation] = useState('Portafolio')
+	// const [headerLocation, setHeaderLocation] = useState('Portafolio')
 	const [menuOpen, setMenuOpen] = useState(false)
-	const [themeClaro, setTheme] = useState((localStorage.getItem('theme') !== null) ? JSON.parse(localStorage.getItem('theme')) : true)
-
+	// const [themeClaro, setTheme] = useState((localStorage.getItem('theme') !== null) ? JSON.parse(localStorage.getItem('theme')) : true)
+	
 	// Funciones de Handle
-	const handleUpdateHeaderLocation = {
-		portafolio: () => setHeaderLocation('Portafolio'),
-		servicios: () => setHeaderLocation('DevWeb'),
-		contactos: () => setHeaderLocation('Contactos'),
-		bio: () => setHeaderLocation('Bío')
-	}
-
 	const handleClickHeader = () => {
 		setMenuOpen(!menuOpen)
 	}
 
-	const handleTheme = () => {
-		localStorage.setItem('theme', JSON.stringify(!themeClaro))
-		setTheme(!themeClaro)
-	}
+	// const handleTheme = () => {
+	// 	localStorage.setItem('theme', JSON.stringify(!themeClaro))
+	// 	setTheme(!themeClaro)
+	// }
 
 	return (
 		<section>
 			<Router>
 
 				<Header
-					location={ headerLocation }
 					menuOpen={ menuOpen }
-					tema={ themeClaro }
 					onClick={ () => handleClickHeader() }
 				>
 				</Header>
 
 				<Main>
-					<Routing handleLocationHeader={ handleUpdateHeaderLocation } />
+					<Routing />
 				</Main>
 
-				<FloatBtnContent>
+				{/*<FloatBtnContent>
 					<FloatBtn type='theme' handleClick={ handleTheme } titulo='Cambiar Tema' />
-				</FloatBtnContent>
+				</FloatBtnContent>*/}
 
-				<Footer tema={ themeClaro } />
+				<Footer />
 
 			</Router>
 		</section>

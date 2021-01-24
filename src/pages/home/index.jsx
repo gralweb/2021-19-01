@@ -5,7 +5,7 @@ import LoaderApp from './../../components/LoaderApp'
 // import FetchPortafolioCarts from './FetchPortafolioCarts'
 import RenderPortafolioData from './acciones/RenderPortafolioData'
 
-const RenderPortafolio = ({ headerLocation }) => {
+const RenderPortafolio = () => {
 	const [ scaleAnim, setScaleAnim ] = useState(false)
 	const [ portafolioData, setPortafolioData ] = useState(null)
 
@@ -23,14 +23,13 @@ const RenderPortafolio = ({ headerLocation }) => {
 	useEffect(() => {
 		setScaleAnim(true)
 
-		document.title = `${document.title.slice(0, 9)} Portafolio`
-		headerLocation.portafolio()
+		document.title = `${document.title.slice(0, 6)} Portafolio`
 
 		if ( portafolioData === null) {
 			fetchData()
 		}
 
-	}, [ setScaleAnim, headerLocation, fetchData, portafolioData, setPortafolioData ])
+	}, [ setScaleAnim, fetchData, portafolioData, setPortafolioData ])
 
 	return (
 		portafolioData ?
