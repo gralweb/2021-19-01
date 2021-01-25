@@ -1,13 +1,21 @@
 /* Variables */
+
 @import 'variables.scss';
 
 /* Global */
+
 @import 'global.scss';
 
-/* Header y sus elementos */ 
+/* Header y sus elementos */
+
 @import './header/header.scss';
 @import './header/header-nav.scss';
 @import './header/header-nav-search.scss';
 @import './header/header-nav-btn.scss';
 
 /* Footer y sus elementos */
+
+@import './footer/footer.scss';
+@import './footer/footer-nav-start.scss';
+@import './footer/footer-nav-end.scss';
+@import './footer/footer-nav-links.scss';

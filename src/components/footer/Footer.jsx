@@ -1,34 +1,30 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
 
-// Componentes
-import { ASSETS_URL } from './../constans'
+import FooterNavStart from './FooterNavStart'
+import FooterNavEnd from './FooterNavEnd'
 
-const Footer = ({ tema }) => {
-    const fecha = new Date()
-
+const Footer = () => {
   	return (
-        <footer id='app-footer' className='app-footer'>
-        	<div className='app-footer-content'>
-                <div id='app-footer-logo' className='app-content-logo app-logo-cat'>
-                    <figure className='app-logo-img'>
-                        <Link to='/portafolio'>
-                            <img
-                                src={ `${ ASSETS_URL }/logo/pwa/${(tema) ? 'claro' : 'oscuro'}/512x512.png` }
-                                title='Gralweb'
-                                alt='Logo GralWeb'
-                            />
-                        </Link>
-                    </figure>
+        <footer className='footer'>
+            <div className='footer-cont-start'>
+                {/* Navegacion */}
+                <div className="footer-nav-start">
+                    <FooterNavStart />
+                </div>
+            </div>
+
+            <div className='footer-cont-end' >
+                {/* navegacion */}
+                <div className="footer-nav-end">
+                    <FooterNavEnd />
                 </div>
 
-                <div className='app-content-year'>
-                    <p>{ fecha.getFullYear() }</p>
-                    <p>&copy;</p>
+                <div className='footer-copyrigth'>
+                    <p>2021 &copy;</p>
                 </div>
             </div>
         </footer>
-	);
+	)
 }
 
-export default Footer;
+export default Footer

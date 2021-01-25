@@ -1,0 +1,40 @@
+.footer-nav-end {
+    // background: red;
+    // width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .footer-nav {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        .footer-nav-links {
+            margin: 0 5px;
+            flex-direction: column;
+            // background: cornflowerblue;
+            .footer-list-item {
+                a {
+                    background: lightskyblue;
+                    &:hover {
+                        // color: lightskyblue;
+                        background: #600000;
+                    }
+                }
+            }
+        }
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 3px;
+            height: 70%;
+            margin: auto;
+            border-radius: 10px;
+            background: rgba(255, 0, 0, 0.377);
+        }
+    }
+}
