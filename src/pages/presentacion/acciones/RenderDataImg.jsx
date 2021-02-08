@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
 // Componentes
-import { ASSETS_URL } from './../../../components/constans';
+import { ASSETS_URL } from '../../../components/constans'
 
-const presentacionImgZoom = (img, handleZoom) => {
+const ImgZoom = (img, handleZoom) => {
 	handleZoom()
 
 	const zoomClase = 'zoom'
@@ -19,11 +19,11 @@ const presentacionImgZoom = (img, handleZoom) => {
 	zoomContent.value = imgSrcValue
 }
 
-const PresentacionImg = ({ scaleAnim, img, titulo, handleZoom }) => {
+const Img = ({ scaleAnim, img, titulo, handleZoom }) => {
 	return (
 		<div
 			className={ `app-cont-item app-vista ${ scaleAnim } ` }
-			onClick={ e => presentacionImgZoom(e.currentTarget, handleZoom) }
+			onClick={ e => ImgZoom(e.currentTarget, handleZoom) }
 		>
 
 	        <figure className='app-item-img app-vista-foto'>
@@ -35,14 +35,14 @@ const PresentacionImg = ({ scaleAnim, img, titulo, handleZoom }) => {
 	            </div>
 	        </figcaption>
 	    </div>
-	);
+	)
 }
 
-const RenderPresentacionImg = ( fotos, titulo, scaleAnim, handleOpenZoom ) => {
+const RenderDataImg = ( fotos, titulo, scaleAnim, handleOpenZoom ) => {
 	return (
 		fotos.map((img, index) => {
 			return (
-				<PresentacionImg 
+				<Img 
 					key={ index }
 					scaleAnim={ scaleAnim }
 					img={ img }
@@ -51,7 +51,7 @@ const RenderPresentacionImg = ( fotos, titulo, scaleAnim, handleOpenZoom ) => {
 				/>
 			)
 		})
-	);
+	)
 }
 
-export default RenderPresentacionImg;
+export default RenderDataImg

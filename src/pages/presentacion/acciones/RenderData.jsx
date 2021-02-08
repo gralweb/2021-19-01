@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
 
 // Componentes
-// import { ASSETS_URL } from './../../components/constans';
-import RenderPresentacionImg from './RenderPresentacionImg';
+// import { ASSETS_URL } from './../../components/constans'
+import RenderDataImg from './RenderDataImg'
 
-const RenderPresentacionData = ({ datos, fotos }, scaleAnimBoolean, zoomOpen, zoomHandleOpen) => {
+const RenderData = ({ datos, fotos }, scaleAnimBoolean, zoomOpen, zoomHandleOpen) => {
 	const { titulo, descripcion } = datos
 	const scaleAnim = scaleAnimBoolean ? 'app-cont-item-scale' : null
 	document.title = `${document.title.slice(0, 9)} ${titulo}`
@@ -25,7 +25,7 @@ const RenderPresentacionData = ({ datos, fotos }, scaleAnimBoolean, zoomOpen, zo
 
 			<div className='app-vista-cont-fotos'>
 			    {
-			    	RenderPresentacionImg( fotos, titulo, scaleAnim, zoomHandleOpen )
+			    	RenderDataImg( fotos, titulo, scaleAnim, zoomHandleOpen )
 			    }
 			</div>
 
@@ -45,7 +45,7 @@ const RenderPresentacionData = ({ datos, fotos }, scaleAnimBoolean, zoomOpen, zo
 			    </p>
 			</div>
 		</div>
-	);
+	)
 }
 
-export default RenderPresentacionData;
+export default RenderData

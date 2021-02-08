@@ -1,13 +1,13 @@
 import { useState, useEffect, useCallback } from 'react'
 
 // Componentes
-import LoaderApp from './../../components/LoaderApp'
-import RenderPresentacionData from './acciones/RenderPresentacionData'
-import FetchPresentacionCartsData from './acciones/FetchPresentacionCartsData'
+import Loader from './../../components/Loader'
+import RenderData from './acciones/RenderData'
+import FetchData from './acciones/FetchData'
 
-const RenderPresentacion = ({ nameCart }) => {
+const RenderPresentacion = ({ idCart }) => {
 	const [ scaleAnim, setScaleAnim ] = useState(false)
-	const [ presentacionCartsData, setPresentacionCartsData ] = useState(null)
+	const [ cartsData, setCartsData ] = useState(null)
 	const [ zoomOpen, setZoomOpen ] = useState(false)
 
 	const zoomHandleOpen =() => {
@@ -17,17 +17,17 @@ const RenderPresentacion = ({ nameCart }) => {
 	const zoomImgList = document.querySelectorAll('.app-vista-cont-fotos .zoom')
 
 	const fetchData = useCallback(() => {
-		FetchPresentacionCartsData( nameCart ).then(datos => {
-			setPresentacionCartsData(datos)
+		FetchData( idCart ).then(datos => {
+			setCartsData(datos)
 		}).catch(err => {
 			console.log(err)
 		})
-	}, [ nameCart ])
+	}, [ idCart ])
 
 	useEffect(() => {
 		setScaleAnim(true)
 
-		if (presentacionCartsData === null) {
+		if (cartsData === null) {
 			fetchData()
 		}
 
@@ -42,13 +42,13 @@ const RenderPresentacion = ({ nameCart }) => {
 			document.querySelector('body').classList.remove('zoom')
 		}
 
-	}, [ setScaleAnim, presentacionCartsData, nameCart, fetchData, setPresentacionCartsData, zoomOpen, zoomImgList ])
+	}, [ cartsData, fetchData, zoomOpen, zoomImgList ])
 
 	return (
-		presentacionCartsData ?
-		RenderPresentacionData(presentacionCartsData, scaleAnim, zoomOpen, zoomHandleOpen)
+		cartsData ?
+		RenderData(cartsData, scaleAnim, zoomOpen, zoomHandleOpen)
 		:
-		LoaderApp()
+		Loader()
 	)
 }
 

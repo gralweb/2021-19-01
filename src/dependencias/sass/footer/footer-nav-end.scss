@@ -15,10 +15,11 @@
             // background: cornflowerblue;
             .footer-list-item {
                 a {
-                    background: lightskyblue;
+                    background: $color-gris;
+                    color: $color-negro;
                     &:hover {
                         // color: lightskyblue;
-                        background: #600000;
+                        background: $color-blanco;
                     }
                 }
             }
@@ -34,7 +35,7 @@
             height: 70%;
             margin: auto;
             border-radius: 10px;
-            background: rgba(255, 0, 0, 0.377);
+            background: $color-gris
         }
     }
 }

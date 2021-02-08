@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Redirect, Switch } from 'react-router-dom'
 
 // Importar Componentes - Pages para hacer el Routing
-import RenderPortafolio from './../pages/home'
+import RenderHome from './../pages/home'
 import RenderPresentacion from './../pages/presentacion'
 
 const Routing = ({ handleLocationHeader }) => {
@@ -16,12 +16,12 @@ const Routing = ({ handleLocationHeader }) => {
 			<Route
 				exact
 				path='/home'
-				render={ () => <RenderPortafolio headerLocation={handleLocationHeader} pageTarget='1' /> }
+				render={ () => <RenderHome headerLocation={handleLocationHeader} pageTarget='1' /> }
 			/>
 			<Route
 				exact
 				path='/home/:name'
-				render={ routeProps => <RenderPresentacion nameCart={ routeProps.match.params.name } /> }
+				render={ routeProps => <RenderPresentacion idCart={ routeProps.match.params.name } /> }
 			/>
 		</Switch>
 	)

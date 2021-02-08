@@ -1,46 +1,76 @@
 import React, { useState, useEffect, useCallback } from 'react'
 
 // Componentes
-import LoaderApp from './../../components/LoaderApp'
-// import FetchPortafolioCarts from './FetchPortafolioCarts'
-import RenderPortafolioData from './acciones/RenderPortafolioData'
+import Loader from '../../components/Loader'
+// import FetchData from './FetchData'
+import RenderData from './acciones/RenderData'
 
-const RenderPortafolio = () => {
+const RenderHome = () => {
 	const [ scaleAnim, setScaleAnim ] = useState(false)
-	const [ portafolioData, setPortafolioData ] = useState(null)
+	const [ data, setData ] = useState(null)
 
 	const fetchData = useCallback(() => {
-		setPortafolioData([
+		setData([
 			{
 				id: 1,
-				img: '3.png',
+				img: '1.jpg',
+				titulo: 'lorem',
+				descripcion: 'lorem'
+			},
+			{
+				id: 2,
+				img: '2.jpg',
+				titulo: 'lorem',
+				descripcion: 'lorem'
+			},
+			{
+				id: 3,
+				img: '3.jpg',
+				titulo: 'lorem',
+				descripcion: 'lorem'
+			},
+			{
+				id: 4,
+				img: '4.jpg',
+				titulo: 'lorem',
+				descripcion: 'lorem'
+			},
+			{
+				id: 5,
+				img: '5.jpg',
+				titulo: 'lorem',
+				descripcion: 'lorem'
+			},
+			{
+				id: 6,
+				img: '6.jpg',
 				titulo: 'lorem',
 				descripcion: 'lorem'
 			}
 		])
-	}, [setPortafolioData])
+	}, [setData])
 
 	useEffect(() => {
 		setScaleAnim(true)
 
-		document.title = `${document.title.slice(0, 6)} Portafolio`
+		document.title = `${document.title.slice(0, 6)} Home`
 
-		if ( portafolioData === null) {
+		if ( data === null) {
 			fetchData()
 		}
 
-	}, [ setScaleAnim, fetchData, portafolioData, setPortafolioData ])
+	}, [ setScaleAnim, fetchData, data, setData ])
 
 	return (
-		portafolioData ?
-		<div className='app-main-cont'>
+		data ?
+		<div className='main-cont'>
 			{
-				RenderPortafolioData( portafolioData, scaleAnim )
+				RenderData( data, scaleAnim )
 			}
 
 		</div> :
-		LoaderApp()
+		Loader()
 	)
 }
 
-export default RenderPortafolio
+export default RenderHome

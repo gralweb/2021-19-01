@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
 const Main = ({ children }) => {
 	return (
-		<main className='app-main'>
+		<main className='main'>
 			{ children }
 		</main>
-	);
+	)
 }
 
-export default Main;
+export default Main

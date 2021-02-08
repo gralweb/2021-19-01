@@ -2,10 +2,10 @@
     /*clip-path: polygon(0% 25%, 10% 0%, 100% 0, 100% 100%, 10% 100%, 0% 75%, 10% 50%);*/
     /*clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 8% 70%, 8% 30%);*/
     /*clip-path: polygon(0 0, 100% 0, 90% 30%, 90% 70%, 100% 100%, 0 100%, 10% 70%, 10% 30%);*/
-    box-shadow: 0px 0px 6px -3px #000;
+    box-shadow: 0px 0px 6px -3px $color-negro;
     /*border-radius: 10px 0 0 20px;*/
     border-radius: 10px 0 0 10px;
-    background-color: lightblue;
+    background-color: $color-blanco;
     overflow-x: hidden;
     position: fixed;
     height: 100%;
@@ -55,7 +55,7 @@
                     text-decoration: none;
                     letter-spacing: .07rem;
                     font-size: .9rem;
-                    color: #000;
+                    color: $color-negro;
                     padding: 5px;
                     position: relative;
                     &:before,
@@ -68,7 +68,7 @@
                         display: flex;
                         visibility: hidden;
                         align-items: center;
-                        text-shadow: 1px 1px 1px #000;
+                        text-shadow: 1px 1px 1px $color-negro;
                         /*width: 4px;*/
                         /*height: 60%;*/
                         /*background-color: red;*/

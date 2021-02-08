@@ -8,8 +8,8 @@
     align-items: center;
     justify-content: space-between;
     .header-cont-start {
-        box-shadow: 5px -2px 5px -5px #000;
-        background-color: #000;
+        box-shadow: 5px -2px 5px -5px $color-negro;
+        background-color: $color-negro;
         position: absolute;
         display: flex;
         padding: 10px;
@@ -29,8 +29,8 @@
         }
     }
     .header-cont-end {
-        box-shadow: -1px 1px 6px -2px #000;
-        background-color: lightblue;
+        box-shadow: -1px 1px 6px -2px $color-negro;
+        background-color: $color-blanco;
         position: absolute;
         display: flex;
         padding: 5px;

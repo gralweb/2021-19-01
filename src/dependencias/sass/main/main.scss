@@ -1,0 +1,13 @@
+.main {
+    // background-color: lightslategray;
+    max-width: $page-width;
+    overflow-x: hidden;
+    margin: 10px auto;
+    padding: 10px;
+    &-cont {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+}
