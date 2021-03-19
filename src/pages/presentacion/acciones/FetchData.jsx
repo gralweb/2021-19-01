@@ -1,9 +1,9 @@
-import { API_URL_DATA_PRESENTACION } from '../../../components/constans'
+import { API_URL_DATA_BLOG } from '../../../components/constans'
 
-const FetchData = ( nameCart ) => {
+const FetchData = id => {
 	return (	
-		fetch( `${ API_URL_DATA_PRESENTACION }?titulo=${ nameCart } ` ).then( dataCrud => {
-			return dataCrud.json()
+		fetch( `${ API_URL_DATA_BLOG }${ id }` ).then( crud => {
+			return crud.json()
 		})
 	)
 }

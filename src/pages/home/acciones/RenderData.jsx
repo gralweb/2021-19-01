@@ -9,8 +9,8 @@ const RenderData = ( data, scaleAnim ) => {
 			return (
 				<Cart
 					key={ cart.id }
-					titulo={ cart.titulo }
-					img={ cart.img }
+					titulo={ cart.name }
+					img={ cart.id }
 					scaleAnim={ scaleAnim ? 'app-cont-item-scale' : null }
 				/>
 			)

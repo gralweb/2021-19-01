@@ -1,10 +1,10 @@
-import {  API_URL_DATA_CARTS  } from '../../../components/constans'
+import {  API_URL_DATA_CARTS, API_URL_DATA_USERS  } from '../../../components/constans'
 
 const FetchData = page => {
-	const url = (page) ? `${API_URL_DATA_CARTS}?p=${page}` : API_URL_DATA_CARTS
+	const url = (page) ? `${API_URL_DATA_CARTS}?p=${page}` : API_URL_DATA_USERS
 	return (
-		fetch(url).then( dataCrud => {
-			return dataCrud.json()
+		fetch(url).then( crud => {
+			return crud.json()
 		})
 	)
 }

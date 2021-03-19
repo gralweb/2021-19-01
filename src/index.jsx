@@ -1,13 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/App';
-// import sW from './sW';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import App from './components/App'
+import { Provider } from './store'
+// import sW from './sW'
 
 ReactDOM.render(
-	<App />,
+	<Provider>
+		<App />
+	</Provider>,
 	document.getElementById('root')
-);
+)
 
 // Iniciando el service Worker
-// sW();
+// sW()

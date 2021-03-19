@@ -2,12 +2,12 @@ import React from 'react'
 
 // Componentes
 // import { ASSETS_URL } from './../../components/constans'
-import RenderDataImg from './RenderDataImg'
+// import RenderDataImg from './RenderDataImg'
 
-const RenderData = ({ datos, fotos }, scaleAnimBoolean, zoomOpen, zoomHandleOpen) => {
-	const { titulo, descripcion } = datos
-	const scaleAnim = scaleAnimBoolean ? 'app-cont-item-scale' : null
-	document.title = `${document.title.slice(0, 9)} ${titulo}`
+const RenderData = ({ title, body }, scaleAnimBoolean, zoomOpen, zoomHandleOpen) => {
+	// const { titulo, descripcion } = datos
+	// const scaleAnim = scaleAnimBoolean ? 'app-cont-item-scale' : null
+	document.title = `${document.title.slice(0, 9)} ${title}`
 
 	return (
 		<div className='app-main-cont'>
@@ -23,16 +23,16 @@ const RenderData = ({ datos, fotos }, scaleAnimBoolean, zoomOpen, zoomHandleOpen
 	            </div>
 	        </div>
 
-			<div className='app-vista-cont-fotos'>
+			{/* <div className='app-vista-cont-fotos'>
 			    {
 			    	RenderDataImg( fotos, titulo, scaleAnim, zoomHandleOpen )
 			    }
-			</div>
+			</div> */}
 
 			<div className='app-vista-cont-titulo'>
 			    <h2>
 			        {
-			        	titulo
+			        	title
 			        }
 			    </h2>
 			</div>
@@ -40,7 +40,7 @@ const RenderData = ({ datos, fotos }, scaleAnimBoolean, zoomOpen, zoomHandleOpen
 			<div className='app-vista-cont-texto'>
 			    <p>
 			        {
-			        	descripcion
+			        	body
 			        }
 			    </p>
 			</div>

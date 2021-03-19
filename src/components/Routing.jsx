@@ -20,7 +20,7 @@ const Routing = ({ handleLocationHeader }) => {
 			/>
 			<Route
 				exact
-				path='/home/:name'
+				path='/blog/:name'
 				render={ routeProps => <RenderPresentacion idCart={ routeProps.match.params.name } /> }
 			/>
 		</Switch>

@@ -1,74 +1,38 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { ContextApp } from './../../store'
 
 // Componentes
 import Loader from '../../components/Loader'
-// import FetchData from './FetchData'
+import FetchData from './acciones/FetchData'
 import RenderData from './acciones/RenderData'
 
 const RenderHome = () => {
 	const [ scaleAnim, setScaleAnim ] = useState(false)
-	const [ data, setData ] = useState(null)
-
-	const fetchData = useCallback(() => {
-		setData([
-			{
-				id: 1,
-				img: '1.jpg',
-				titulo: 'lorem',
-				descripcion: 'lorem'
-			},
-			{
-				id: 2,
-				img: '2.jpg',
-				titulo: 'lorem',
-				descripcion: 'lorem'
-			},
-			{
-				id: 3,
-				img: '3.jpg',
-				titulo: 'lorem',
-				descripcion: 'lorem'
-			},
-			{
-				id: 4,
-				img: '4.jpg',
-				titulo: 'lorem',
-				descripcion: 'lorem'
-			},
-			{
-				id: 5,
-				img: '5.jpg',
-				titulo: 'lorem',
-				descripcion: 'lorem'
-			},
-			{
-				id: 6,
-				img: '6.jpg',
-				titulo: 'lorem',
-				descripcion: 'lorem'
-			}
-		])
-	}, [setData])
+	const { store, actions } = useContext(ContextApp)
 
 	useEffect(() => {
 		setScaleAnim(true)
 
 		document.title = `${document.title.slice(0, 6)} Home`
 
-		if ( data === null) {
-			fetchData()
+		if (store.carts.length < 1) {
+			FetchData().then(data => {
+				actions.addCarts(data)
+			}).catch(err => {
+				console.log(err)
+			})
 		}
 
-	}, [ setScaleAnim, fetchData, data, setData ])
+	}, [ setScaleAnim, store, actions ])
 
 	return (
-		data ?
+		store.carts ?
 		<div className='main-cont'>
 			{
-				RenderData( data, scaleAnim )
+				RenderData( store.carts, scaleAnim )
 			}
-
-		</div> :
+		</div>
+		:
 		Loader()
 	)
 }

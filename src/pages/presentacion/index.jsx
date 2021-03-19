@@ -1,4 +1,5 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useContext, useCallback } from 'react'
+import { ContextApp } from './../../store'
 
 // Componentes
 import Loader from './../../components/Loader'
@@ -7,48 +8,58 @@ import FetchData from './acciones/FetchData'
 
 const RenderPresentacion = ({ idCart }) => {
 	const [ scaleAnim, setScaleAnim ] = useState(false)
-	const [ cartsData, setCartsData ] = useState(null)
 	const [ zoomOpen, setZoomOpen ] = useState(false)
+	const { store, actions } = useContext(ContextApp)
+
+	const pageBody = document.querySelector('body')
+	const zoomImgList = document.querySelectorAll('.app-vista-cont-fotos .zoom')
 
 	const zoomHandleOpen =() => {
 		setZoomOpen(!zoomOpen)
 	}
 
-	const zoomImgList = document.querySelectorAll('.app-vista-cont-fotos .zoom')
-
 	const fetchData = useCallback(() => {
-		FetchData( idCart ).then(datos => {
-			setCartsData(datos)
-		}).catch(err => {
-			console.log(err)
-		})
-	}, [ idCart ])
+		FetchData(idCart).then(data => {
+			const { id } = data
+			const trans = {}
+
+			const transSetData = () => {
+				trans[id] = data
+				
+				actions.addCart(trans)
+			}
+
+			transSetData()
+
+		}).catch(err => console.log(err))
+	}, [idCart, actions])
 
 	useEffect(() => {
 		setScaleAnim(true)
+		const { cart } = store
 
-		if (cartsData === null) {
+		if (typeof cart[idCart] !== 'object') {
 			fetchData()
 		}
-
+		
 		if (zoomOpen) {
-			document.querySelector('body').classList.add('zoom')
+			pageBody.classList.add('zoom')
 		} else {
 			if (zoomImgList) {
-				for (let i = 0; i < zoomImgList.length; i++) {
-					zoomImgList[i].classList.remove('zoom')
-				}
+				zoomImgList.forEach(img => {
+					img.classList.remove('zoom')
+				})
 			}
-			document.querySelector('body').classList.remove('zoom')
+			pageBody.classList.remove('zoom')
 		}
 
-	}, [ cartsData, fetchData, zoomOpen, zoomImgList ])
+	}, [ zoomOpen, zoomImgList, pageBody, store, idCart, fetchData ])
 
 	return (
-		cartsData ?
-		RenderData(cartsData, scaleAnim, zoomOpen, zoomHandleOpen)
-		:
+		(typeof store.cart[idCart] !== 'object') ?
 		Loader()
+		:
+		RenderData(store.cart[idCart], scaleAnim, zoomOpen, zoomHandleOpen)
 	)
 }
 
