@@ -1,35 +1,25 @@
 import React from 'react'
 
 // Componentes
-// import { ASSETS_URL } from './../../components/constans'
+import Zoom from './../../../components/Zoom'
+
 // import RenderDataImg from './RenderDataImg'
 
 const RenderData = ({ title, body }, scaleAnimBoolean, zoomOpen, zoomHandleOpen) => {
-	// const { titulo, descripcion } = datos
-	// const scaleAnim = scaleAnimBoolean ? 'app-cont-item-scale' : null
-	document.title = `${document.title.slice(0, 9)} ${title}`
+	const scale = scaleAnimBoolean ? 'scale-max' : 'scale-min'
+	document.title = `${title} ${document.title.slice(0, 9)}`
 
 	return (
-		<div className='app-main-cont'>
-			<div className={ (zoomOpen) ? `app-vista-cont-zoom zoom` : 'app-vista-cont-zoom' }>
-				<div className={ (zoomOpen) ? `app-zoom-foto zoom` : 'app-zoom-foto' }>
-	                <img src='' alt='zoom' />
-	            </div>
+		<div className={`single-cont main-cont`}>
+			<Zoom status={zoomOpen} handle={zoomHandleOpen} scale={scale} />
 
-	            <div className='app-zoom-cont-close-btn' onClick={ () => zoomHandleOpen() }>
-            		<span className='app-btn-menu app-btn-menu-dark'>
-	            		<i className='icofont-close'></i>
-            		</span>
-	            </div>
-	        </div>
-
-			{/* <div className='app-vista-cont-fotos'>
+			{/* <div className='single-cont-fotos'>
 			    {
 			    	RenderDataImg( fotos, titulo, scaleAnim, zoomHandleOpen )
 			    }
 			</div> */}
 
-			<div className='app-vista-cont-titulo'>
+			<div className='single-cont-titulo' onClick={ () => zoomHandleOpen() }>
 			    <h2>
 			        {
 			        	title
@@ -37,7 +27,7 @@ const RenderData = ({ title, body }, scaleAnimBoolean, zoomOpen, zoomHandleOpen)
 			    </h2>
 			</div>
 
-			<div className='app-vista-cont-texto'>
+			<div className='single-cont-texto'>
 			    <p>
 			        {
 			        	body

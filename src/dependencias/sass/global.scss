@@ -7,3 +7,13 @@
 body {
     background-color: $color-gris;
 }
+
+.scale-min {
+    transform: scale(0);
+    transition: all 400ms ease-in-out;
+}
+
+.scale-max {
+    transform: scale(1);
+    transition: all 400ms ease-in-out;
+}
