@@ -1,36 +1,35 @@
 import React from 'react'
 
-// Componentes
-import { ASSETS_URL } from '../../../components/constans'
-
 const ImgZoom = (img, handleZoom) => {
 	handleZoom()
 
-	const zoomClase = 'zoom'
-	const zoomElement = document.querySelectorAll(`.${zoomClase}`)
-	const zoomContent = document.querySelector('.app-zoom-foto img').attributes.src
-	const imgSrcValue = img.children[0].children[0].attributes.src.value
+	const zoomElement = document.querySelectorAll('.zoom')
+	const { src } = document.querySelector('.app-zoom-foto img').attributes
+	const { value } = img.children[0].children[0].attributes.src
 
 	if (zoomElement) {
-		for (let i = 0; i < zoomElement.length; i++) {
-			zoomElement[i].classList.remove(zoomClase)
-		}
+		zoomElement.forEach(elem => {
+			elem.classList.remove('zoom')
+		})
 	}
-	zoomContent.value = imgSrcValue
+
+	src.value = value
 }
 
-const Img = ({ scaleAnim, img, titulo, handleZoom }) => {
+const Img = ({ scaleAnim, imgWeb, imgLarge, titulo, handleZoom }) => {
 	return (
 		<div
-			className={ `app-cont-item app-vista ${ scaleAnim } ` }
+			className={ `single-img ${ scaleAnim } ` }
 			onClick={ e => ImgZoom(e.currentTarget, handleZoom) }
 		>
 
-	        <figure className='app-item-img app-vista-foto'>
-	            <img src={ `${ ASSETS_URL }/assets/${ img.foto }` } alt={ titulo } title={ titulo } />
+	        <figure className='single-img-cont'>
+	            <img src={ imgWeb } alt={ titulo } title={ titulo } />
+				{/* Image para el zoom */}
+				<img src={ imgLarge } alt={ titulo } title={ titulo } />
 	        </figure>
-	        <figcaption className='app-vista-zoom'>
-	            <div className='app-zoom'>
+	        <figcaption className='single-img-icon'>
+	            <div>
 	                <i className='icofont-optic'></i>
 	            </div>
 	        </figcaption>
@@ -38,14 +37,15 @@ const Img = ({ scaleAnim, img, titulo, handleZoom }) => {
 	)
 }
 
-const RenderDataImg = ( fotos, titulo, scaleAnim, handleOpenZoom ) => {
+const RenderDataImg = ( images, titulo, scale, handleOpenZoom ) => {
 	return (
-		fotos.map((img, index) => {
+		images.map((img, index) => {
 			return (
 				<Img 
 					key={ index }
-					scaleAnim={ scaleAnim }
-					img={ img }
+					scale={ scale }
+					imgWeb={ img.web }
+					imgLarge={ img.large }
 					titulo={ titulo }
 					handleZoom={ handleOpenZoom }
 				/>

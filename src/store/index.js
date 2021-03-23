@@ -11,16 +11,23 @@ const Provider = ({ children }) => {
     const [cart, setCart] = useState({})
     const addCart = cartData => {
         setCart({...cart, ...cartData})
+    }
+
+    const [cartImgs, setCartImgs] = useState({})
+    const addCartImgs = cartDataImgs => {
+        setCartImgs({...cartImgs, ...cartDataImgs})
     } 
     
     const global = {
         store: {
             carts,
-            cart
+            cart,
+            cartImgs
         },
         actions: {
             addCarts,
-            addCart
+            addCart,
+            addCartImgs
         }
     }
 

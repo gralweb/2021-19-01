@@ -1,0 +1,1 @@
+¬	Se deforma la vista en modo telefono desde los 430px hacia abajo

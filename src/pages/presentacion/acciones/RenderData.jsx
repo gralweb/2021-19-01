@@ -3,21 +3,21 @@ import React from 'react'
 // Componentes
 import Zoom from './../../../components/Zoom'
 
-// import RenderDataImg from './RenderDataImg'
+import RenderDataImg from './RenderDataImg'
 
-const RenderData = ({ title, body }, scaleAnimBoolean, zoomOpen, zoomHandleOpen) => {
+const RenderData = ({ title, body, images }, scaleAnimBoolean, zoomOpen, zoomHandleOpen) => {
 	const scale = scaleAnimBoolean ? 'scale-max' : 'scale-min'
-	document.title = `${title} ${document.title.slice(0, 9)}`
+	document.title = title
 
 	return (
 		<div className={`single-cont main-cont`}>
 			<Zoom status={zoomOpen} handle={zoomHandleOpen} scale={scale} />
 
-			{/* <div className='single-cont-fotos'>
+			<div className='single-cont-imgs'>
 			    {
-			    	RenderDataImg( fotos, titulo, scaleAnim, zoomHandleOpen )
+			    	RenderDataImg( images, title, scale, zoomHandleOpen )
 			    }
-			</div> */}
+			</div>
 
 			<div className='single-cont-titulo' onClick={ () => zoomHandleOpen() }>
 			    <h2>

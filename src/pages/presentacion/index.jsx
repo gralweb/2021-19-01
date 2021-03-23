@@ -4,7 +4,7 @@ import { ContextApp } from './../../store'
 // Componentes
 import Loader from './../../components/Loader'
 import RenderData from './acciones/RenderData'
-import FetchData from './acciones/FetchData'
+import { FetchData, FetchImg } from './acciones/FetchData'
 
 const RenderPresentacion = ({ idCart }) => {
 	const [ scaleAnim, setScaleAnim ] = useState(false)
@@ -30,16 +30,35 @@ const RenderPresentacion = ({ idCart }) => {
 			}
 
 			transSetData()
+		}).catch(err => console.log(err))
+	}, [idCart, actions])
 
+	const fetchImg = useCallback(() => {
+		FetchImg(idCart).then(data => {
+			const trans = {}
+
+			const transSetData = () => {
+				trans[idCart] = data.hits.map(hit => {
+					return {web: hit.webformatURL, large: hit.largeImageURL}
+				})
+				
+				actions.addCartImgs(trans)
+			}
+
+			transSetData()
 		}).catch(err => console.log(err))
 	}, [idCart, actions])
 
 	useEffect(() => {
 		setScaleAnim(true)
-		const { cart } = store
+		const { cart, cartImgs } = store
 
 		if (typeof cart[idCart] !== 'object') {
 			fetchData()
+		}
+
+		if (typeof cartImgs[idCart] !== 'object') {
+			fetchImg()
 		}
 		
 		if (zoomOpen) {
@@ -53,13 +72,13 @@ const RenderPresentacion = ({ idCart }) => {
 			pageBody.classList.remove('zoom')
 		}
 
-	}, [ zoomOpen, zoomImgList, pageBody, store, idCart, fetchData ])
+	}, [ zoomOpen, zoomImgList, pageBody, store, idCart, fetchData, fetchImg ])
 
 	return (
-		(typeof store.cart[idCart] !== 'object') ?
+		(typeof store.cart[idCart] !== 'object' || typeof store.cartImgs[idCart] !== 'object') ?
 		Loader()
 		:
-		RenderData(store.cart[idCart], scaleAnim, zoomOpen, zoomHandleOpen)
+		RenderData({...store.cart[idCart], images: store.cartImgs[idCart] }, scaleAnim, zoomOpen, zoomHandleOpen)
 	)
 }
 
