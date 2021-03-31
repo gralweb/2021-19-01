@@ -4,7 +4,7 @@ const ImgZoom = (img, handleZoom) => {
 	handleZoom()
 
 	const zoomElement = document.querySelectorAll('.zoom')
-	const { src } = document.querySelector('.app-zoom-foto img').attributes
+	const { src } = document.querySelector('.zoom-cont-foto img').attributes
 	const { value } = img.children[0].children[0].attributes.src
 
 	if (zoomElement) {
@@ -16,7 +16,7 @@ const ImgZoom = (img, handleZoom) => {
 	src.value = value
 }
 
-const Img = ({ scaleAnim, imgWeb, imgLarge, titulo, handleZoom }) => {
+const Img = ({ scaleAnim, imgWeb, titulo, handleZoom }) => {
 	return (
 		<div
 			className={ `single-img ${ scaleAnim } ` }
@@ -25,8 +25,6 @@ const Img = ({ scaleAnim, imgWeb, imgLarge, titulo, handleZoom }) => {
 
 	        <figure className='single-img-cont'>
 	            <img src={ imgWeb } alt={ titulo } title={ titulo } />
-				{/* Image para el zoom */}
-				<img src={ imgLarge } alt={ titulo } title={ titulo } />
 	        </figure>
 	        <figcaption className='single-img-icon'>
 	            <div>

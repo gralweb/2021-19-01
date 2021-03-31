@@ -11,9 +11,6 @@ const RenderPresentacion = ({ idCart }) => {
 	const [ zoomOpen, setZoomOpen ] = useState(false)
 	const { store, actions } = useContext(ContextApp)
 
-	const pageBody = document.querySelector('body')
-	const zoomImgList = document.querySelectorAll('.app-vista-cont-fotos .zoom')
-
 	const zoomHandleOpen =() => {
 		setZoomOpen(!zoomOpen)
 	}
@@ -39,7 +36,7 @@ const RenderPresentacion = ({ idCart }) => {
 
 			const transSetData = () => {
 				trans[idCart] = data.hits.map(hit => {
-					return {web: hit.webformatURL, large: hit.largeImageURL}
+					return { web: hit.webformatURL }
 				})
 				
 				actions.addCartImgs(trans)
@@ -60,25 +57,24 @@ const RenderPresentacion = ({ idCart }) => {
 		if (typeof cartImgs[idCart] !== 'object') {
 			fetchImg()
 		}
-		
-		if (zoomOpen) {
-			pageBody.classList.add('zoom')
-		} else {
-			if (zoomImgList) {
-				zoomImgList.forEach(img => {
-					img.classList.remove('zoom')
-				})
-			}
-			pageBody.classList.remove('zoom')
-		}
 
-	}, [ zoomOpen, zoomImgList, pageBody, store, idCart, fetchData, fetchImg ])
+	}, [ store, idCart, fetchData, fetchImg ])
 
 	return (
-		(typeof store.cart[idCart] !== 'object' || typeof store.cartImgs[idCart] !== 'object') ?
+		(
+			typeof store.cart[idCart] !== 'object'
+			|| 
+			typeof store.cartImgs[idCart] !== 'object'
+		) ?
 		Loader()
 		:
-		RenderData({...store.cart[idCart], images: store.cartImgs[idCart] }, scaleAnim, zoomOpen, zoomHandleOpen)
+		RenderData(
+			{...store.cart[idCart],
+			images: store.cartImgs[idCart] },
+			scaleAnim,
+			zoomOpen,
+			zoomHandleOpen
+		)
 	)
 }
 
