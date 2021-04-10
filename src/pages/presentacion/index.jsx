@@ -16,6 +16,7 @@ const RenderPresentacion = ({ idCart }) => {
 	}
 
 	const fetchData = useCallback(() => {
+
 		FetchData(idCart).then(data => {
 			const { id } = data
 			const trans = {}
@@ -31,6 +32,7 @@ const RenderPresentacion = ({ idCart }) => {
 	}, [idCart, actions])
 
 	const fetchImg = useCallback(() => {
+
 		FetchImg(idCart).then(data => {
 			const trans = {}
 
@@ -43,11 +45,13 @@ const RenderPresentacion = ({ idCart }) => {
 			}
 
 			transSetData()
+
 		}).catch(err => console.log(err))
 	}, [idCart, actions])
 
 	useEffect(() => {
 		setScaleAnim(true)
+
 		const { cart, cartImgs } = store
 
 		if (typeof cart[idCart] !== 'object') {
@@ -57,20 +61,22 @@ const RenderPresentacion = ({ idCart }) => {
 		if (typeof cartImgs[idCart] !== 'object') {
 			fetchImg()
 		}
-
 	}, [ store, idCart, fetchData, fetchImg ])
 
-	return (
-		(
-			typeof store.cart[idCart] !== 'object'
+	if (
+		typeof store.cart[idCart] !== 'object'
 			|| 
-			typeof store.cartImgs[idCart] !== 'object'
-		) ?
-		Loader()
-		:
+		typeof store.cartImgs[idCart] !== 'object'
+	) {
+		return Loader()
+	}
+
+	return (
 		RenderData(
-			{...store.cart[idCart],
-			images: store.cartImgs[idCart] },
+			{
+				...store.cart[idCart],
+				images: store.cartImgs[idCart]
+			},
 			scaleAnim,
 			zoomOpen,
 			zoomHandleOpen

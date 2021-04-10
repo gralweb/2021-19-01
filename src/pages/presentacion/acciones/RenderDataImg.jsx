@@ -26,10 +26,9 @@ const Img = ({ scaleAnim, imgWeb, titulo, handleZoom }) => {
 	        <figure className='single-img-cont'>
 	            <img src={ imgWeb } alt={ titulo } title={ titulo } />
 	        </figure>
+			
 	        <figcaption className='single-img-icon'>
-	            <div>
-	                <i className='icofont-optic'></i>
-	            </div>
+				<i className='icofont-optic'></i>
 	        </figcaption>
 	    </div>
 	)

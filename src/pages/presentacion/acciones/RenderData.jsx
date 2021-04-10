@@ -17,6 +17,19 @@ const RenderData = ({ title, body, images }, scaleAnimBoolean, zoomOpen, zoomHan
 			    {
 			    	RenderDataImg( images, title, scale, zoomHandleOpen )
 			    }
+
+				<div className='single-cont-leyenda'>
+					<div className="single-leyenda-left">
+						<p>
+							Leanne Graham
+						</p>
+					</div>
+					<div className="single-leyenda-right">
+						<p>
+							2021/04/10
+						</p>
+					</div>
+				</div> 
 			</div>
 
 			<div className='single-cont-titulo' onClick={ () => zoomHandleOpen() }>

@@ -1,1 +1,3 @@
 ¬	Se deforma la vista en modo telefono desde los 430px hacia abajo
+¬	Simplificar mas el codigo - hay funciones que se pueden mejorar
+¬	Probar compatibilidad con los navegadores

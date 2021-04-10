@@ -13,7 +13,7 @@ const RenderHome = () => {
 	useEffect(() => {
 		setScaleAnim(true)
 
-		document.title = `${document.title.slice(0, 6)} Home`
+		document.title = 'Home'
 
 		if (store.carts.length < 1) {
 			FetchData().then(data => {

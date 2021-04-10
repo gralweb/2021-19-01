@@ -2,8 +2,8 @@ import React from 'react'
 
 const Loader = () => {
 	return (
-		<div className='app-main-loader' >
-		    <div id='app-main-loader' className='app-form-btn-loader process'></div>
+		<div className='loader-app'>
+		    <div className='loader-app-cont process'></div>
 		</div>
 	)
 }

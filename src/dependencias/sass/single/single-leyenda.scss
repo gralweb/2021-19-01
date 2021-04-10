@@ -1,0 +1,51 @@
+.single-cont-leyenda {
+	background: blue;
+	position: relative;
+	width: 100%;
+	height: 45px;
+	display: flex;
+	// align-items: center;
+
+	.single-leyenda-left {
+		box-shadow: 5px -2px 5px -5px $color-negro;
+		border-radius: 0 16px 16px 0;
+		background: $color-negro;
+		position: relative;
+		display: flex;
+		z-index: 1;
+		width: 65%;
+		padding-left: 20px;
+		align-items: center;
+		justify-content: left;
+
+		p {
+			color: $color-gris;
+			font: {
+				size: 1rem;
+				weight: bold;
+			}
+		}
+	}
+
+	.single-leyenda-right {
+		background: $color-blanco;
+		position: absolute;
+		display: flex;
+		z-index: 0;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		padding-right: 20px;
+		align-items: center;
+		justify-content: right;
+
+		p {
+			color: $color-negro;
+			font: {
+				size: .9rem;
+				weight: bold;
+			}
+		}
+	}
+}
