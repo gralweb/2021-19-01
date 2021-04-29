@@ -64,7 +64,7 @@
                         position: absolute;
                         top: 0;
                         bottom: 0;
-                        color: red;
+                        color: $color-negro;
                         display: flex;
                         visibility: hidden;
                         align-items: center;
@@ -112,7 +112,7 @@
             height: 3px;
             margin: auto;
             border-radius: 10px;
-            background-color: red;
+            background-color: $color-negro;
             box-shadow: 2px 2px 3px 0px gray;
         }
     }

@@ -15,7 +15,11 @@
 		width: 22px;
 		height: 3px;
 		border-radius: 15px;
-		background-color: red;
+		background-color: $color-negro;
+	}
+
+	&:hover .header-btn-line {
+		background-color: $color-gris;
 	}
 
 	&-open {
