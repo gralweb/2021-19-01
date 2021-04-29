@@ -24,16 +24,17 @@ const RenderHome = () => {
 		}
 
 	}, [ setScaleAnim, store, actions ])
+	
+	if (store.carts.length < 1) {
+		return Loader()
+	} 
 
 	return (
-		store.carts ?
 		<div className='main-cont'>
 			{
 				RenderData( store.carts, scaleAnim )
 			}
 		</div>
-		:
-		Loader()
 	)
 }
 
