@@ -42,7 +42,7 @@ const Header = ({ menuOpen, onClick }) => {
                         />*/}
 
                         <img 
-                            src={ `${ASSETS_URL}/logo/gral_claro.png` }
+                            src={ `${ASSETS_URL}/logo/gral_oscuro.png` }
                             alt='Gral' title='GralWeb - Desarrollo Web'
                         />
                     </Link>
