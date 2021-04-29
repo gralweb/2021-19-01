@@ -1,0 +1,46 @@
+.loader-app {
+	position: relative;
+	display: flex;
+	width: 300px;
+	margin: auto;
+	min-height: 75vh;
+	align-items: center;
+	justify-content: center;
+
+	&-cont {
+		border-radius: 100%;
+		-webkit-border-radius: 100%;
+		-moz-border-radius: 100%;
+		-ms-border-radius: 100%;
+		-o-border-radius: 100%;
+		border: 2px solid transparent;
+		position: absolute;
+		height: 60px;
+		width: 60px;
+		border-top-color: $color-negro;
+		// border-top-color: $color-rojo-oscuro-uno;
+
+		&.process {
+			animation: loaderAnim 500ms linear infinite;
+			-webkit-animation: loaderAnim 500ms linear infinite;
+		}
+	}
+}
+
+@keyframes loaderAnim {
+	from {
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg)	;
+		-moz-transform: rotate(0deg)	;
+		-ms-transform: rotate(0deg)	;
+		-o-transform: rotate(0deg)	;
+	}
+
+	to {
+		transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+	}
+}
