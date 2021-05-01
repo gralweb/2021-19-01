@@ -16,18 +16,14 @@ const RenderHome = () => {
 		document.title = 'Home'
 
 		if (store.carts.length < 1) {
-			FetchData().then(data => {
-				actions.addCarts(data)
-			}).catch(err => {
-				console.log(err)
-			})
+			FetchData()
+			.then(data => actions.addCarts(data))
+			.catch(err => console.log(err))
 		}
 
 	}, [ setScaleAnim, store, actions ])
 	
-	if (store.carts.length < 1) {
-		return Loader()
-	} 
+	if (store.carts.length < 1) return Loader()
 
 	return (
 		<div className='main-cont'>

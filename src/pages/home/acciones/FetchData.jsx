@@ -3,9 +3,10 @@ import {  API_URL_DATA_CARTS, API_URL_DATA_USERS  } from '../../../components/co
 const FetchData = page => {
 	const url = (page) ? `${API_URL_DATA_CARTS}?p=${page}` : API_URL_DATA_USERS
 	return (
-		fetch(url).then( crud => {
-			return crud.json()
-		})
+		fetch(url)
+		.then( crud => (
+			crud.json()
+		))
 	)
 }
 
