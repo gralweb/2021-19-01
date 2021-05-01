@@ -14,9 +14,7 @@ const RenderData = ({ title, body, images }, scaleAnimBoolean, zoomOpen, zoomHan
 			<Zoom status={zoomOpen} handle={zoomHandleOpen} scale={scale} />
 
 			<div className='single-cont-imgs'>
-			    {
-			    	RenderDataImg( images, title, scale, zoomHandleOpen )
-			    }
+				{ RenderDataImg( images, title, scale, zoomHandleOpen ) }
 
 				<div className='single-cont-leyenda'>
 					<div className="single-leyenda-left">
@@ -33,19 +31,15 @@ const RenderData = ({ title, body, images }, scaleAnimBoolean, zoomOpen, zoomHan
 			</div>
 
 			<div className='single-cont-titulo' onClick={ () => zoomHandleOpen() }>
-			    <h2>
-			        {
-			        	title
-			        }
-			    </h2>
+				<h2>
+					{ title }
+				</h2>
 			</div>
 
 			<div className='single-cont-texto'>
-			    <p>
-			        {
-			        	body
-			        }
-			    </p>
+				<p>
+					{ body }
+				</p>
 			</div>
 		</div>
 	)

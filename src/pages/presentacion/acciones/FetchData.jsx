@@ -14,20 +14,19 @@ const pixabay = `
 	&page=
 `
 
-const FetchData = id => {
-	return (	
-		fetch( `${ API_URL_DATA_BLOG }${ id }` ).then( crud => {
-			return crud.json()
-		})
-	)
-}
+const FetchData = id => (	
+	fetch( `${ API_URL_DATA_BLOG }${ id }` )
+	.then( crud => (
+		crud.json()
+	))
+)
 
-const FetchImg = id => {
-	return (	
-		fetch(`${pixabay}${id}`).then( crud => {
-			return crud.json()
-		})
-	)
-}
+
+const FetchImg = id => (
+	fetch(`${pixabay}${id}`)
+	.then( crud => (
+		crud.json()
+	))
+)
 
 export { FetchData, FetchImg }

@@ -16,8 +16,8 @@ const RenderPresentacion = ({ idCart }) => {
 	}
 
 	const fetchData = useCallback(() => {
-
-		FetchData(idCart).then(data => {
+		FetchData(idCart)
+		.then(data => {
 			const { id } = data
 			const trans = {}
 
@@ -28,25 +28,27 @@ const RenderPresentacion = ({ idCart }) => {
 			}
 
 			transSetData()
-		}).catch(err => console.log(err))
+		})
+		.catch(err => console.log(err))
 	}, [idCart, actions])
 
 	const fetchImg = useCallback(() => {
-
-		FetchImg(idCart).then(data => {
+		FetchImg(idCart)
+		.then(data => {
 			const trans = {}
 
 			const transSetData = () => {
-				trans[idCart] = data.hits.map(hit => {
-					return { web: hit.webformatURL }
-				})
+				trans[idCart] = data.hits.map(hit => (
+					{ web: hit.webformatURL }
+				))
 				
 				actions.addCartImgs(trans)
 			}
 
 			transSetData()
 
-		}).catch(err => console.log(err))
+		})
+		.catch(err => console.log(err))
 	}, [idCart, actions])
 
 	useEffect(() => {
@@ -65,11 +67,9 @@ const RenderPresentacion = ({ idCart }) => {
 
 	if (
 		typeof store.cart[idCart] !== 'object'
-			|| 
+		||
 		typeof store.cartImgs[idCart] !== 'object'
-	) {
-		return Loader()
-	}
+	) return Loader()
 
 	return (
 		RenderData(

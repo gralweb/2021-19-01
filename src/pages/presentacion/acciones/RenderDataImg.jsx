@@ -16,39 +16,33 @@ const ImgZoom = (img, handleZoom) => {
 	src.value = value
 }
 
-const Img = ({ scaleAnim, imgWeb, titulo, handleZoom }) => {
-	return (
-		<div
-			className={ `single-img ${ scaleAnim } ` }
-			onClick={ e => ImgZoom(e.currentTarget, handleZoom) }
-		>
+const Img = ({ scaleAnim, imgWeb, titulo, handleZoom }) => (
+	<div
+		className={ `single-img ${ scaleAnim } ` }
+		onClick={ e => ImgZoom(e.currentTarget, handleZoom) }
+	>
 
-	        <figure className='single-img-cont'>
-	            <img src={ imgWeb } alt={ titulo } title={ titulo } />
-	        </figure>
-			
-	        <figcaption className='single-img-icon'>
-				<i className='icofont-optic'></i>
-	        </figcaption>
-	    </div>
-	)
-}
+		<figure className='single-img-cont'>
+			<img src={ imgWeb } alt={ titulo } title={ titulo } />
+		</figure>
+		
+		<figcaption className='single-img-icon'>
+			<i className='icofont-optic'></i>
+		</figcaption>
+	</div>
+)
 
-const RenderDataImg = ( images, titulo, scale, handleOpenZoom ) => {
-	return (
-		images.map((img, index) => {
-			return (
-				<Img 
-					key={ index }
-					scale={ scale }
-					imgWeb={ img.web }
-					imgLarge={ img.large }
-					titulo={ titulo }
-					handleZoom={ handleOpenZoom }
-				/>
-			)
-		})
-	)
-}
+const RenderDataImg = ( images, titulo, scale, handleOpenZoom ) => (
+	images.map((img, index) => (
+		<Img 
+			key={ index }
+			scale={ scale }
+			imgWeb={ img.web }
+			imgLarge={ img.large }
+			titulo={ titulo }
+			handleZoom={ handleOpenZoom }
+		/>
+	))
+)
 
 export default RenderDataImg
