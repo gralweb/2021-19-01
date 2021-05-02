@@ -1,17 +1,15 @@
 import React from 'react'
 
-const FloatBtnCont = ({ handleClickBtn, children, titulo }) => {
-	return (
-		<div onClick= { () => handleClickBtn() }
-			className='app-float-btn-cont'
-			title={titulo}
-		>
-			{
-				children
-			}
-		</div>
-	)
-}
+const FloatBtnCont = ({ handleClickBtn, children, titulo }) => (
+	<div onClick= { () => handleClickBtn() }
+		className='app-float-btn-cont'
+		title={titulo}
+	>
+		{
+			children
+		}
+	</div>
+)
 
 const FloatBtn = ({ type, handleClick, titulo }) => {
 	switch(type) {

@@ -5,7 +5,7 @@ const HeaderNavSearch = (props) => {
 
 	const handleForm = e => {
 		e.preventDefault()
-		console.log(e.currentTarget)
+		console.log(e.currentTarget[0].value)
 	}
 
 	const handleFormVal = query => {

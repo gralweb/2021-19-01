@@ -34,27 +34,25 @@ const App = () => {
 	// }
 
 	return (
-		<section>
-			<Router>
+		<Router>
 
-				<Header
-					menuOpen={ menuOpen }
-					onClick={ () => handleClickHeader() }
-				>
-				</Header>
+			<Header
+				menuOpen={ menuOpen }
+				onClick={ () => handleClickHeader() }
+			>
+			</Header>
 
-				<Main>
-					<Routing />
-				</Main>
+			<Main>
+				<Routing />
+			</Main>
 
-				{/*<FloatBtnContent>
-					<FloatBtn type='theme' handleClick={ handleTheme } titulo='Cambiar Tema' />
-				</FloatBtnContent>*/}
+			{/*<FloatBtnContent>
+				<FloatBtn type='theme' handleClick={ handleTheme } titulo='Cambiar Tema' />
+			</FloatBtnContent>*/}
 
-				<Footer />
+			<Footer />
 
-			</Router>
-		</section>
+		</Router>
 	)	
 }
 

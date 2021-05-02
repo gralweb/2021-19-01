@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { ASSETS_URL } from './constans'
 
 const Zoom = ({ status, handle }) => {
 	const [scaleAnim, setScaleAnim] = useState(false)
@@ -13,12 +14,12 @@ const Zoom = ({ status, handle }) => {
 			setScaleAnim(false)
 			pageBody.classList.remove('zoom')
 		}
-	}, [status, scaleAnim, pageBody])
+	}, [status, pageBody])
 
 	return (
 		<div className={ status ? 'zoom-cont zoom' : 'zoom-cont' }>
 			<div className={ `zoom-cont-foto ${scale}` }>
-				<img src='' alt='zoom' />
+				<img src={`${ ASSETS_URL }/assets/9jpg`} alt='zoom' />
 			</div>
 
 			<div className={ `zoom-cont-close-btn ${scale}` } onClick={ () => handle() }>

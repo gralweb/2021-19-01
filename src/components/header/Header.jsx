@@ -33,7 +33,7 @@ const Header = ({ menuOpen, onClick }) => {
 
     return (
         <header className='header'>
-        	<div className='header-cont-start'>
+            <div className='header-cont-start'>
                 <div className='header-cont-logo'>
                     <Link to='/home'>
                         {/*<img 
