@@ -1,5 +1,5 @@
 {
-    "homepage":"https://gralweb.github.io/gralwebtest",
+    "homepage":"https://gralweb.github.io/",
     "name": "app-name",
     "version": "0.1.0",
     "private": true,
@@ -14,7 +14,7 @@
         "react-scripts": "^4.0.3"
     },
     "scripts": {
-        "predeploy": "npm run build",
+        "predeploy": "yarn build",
         "deploy": "gh-pages -d build",
         "sass": "node-sass src/dependencias/sass/index.scss src/dependencias/css/app.css --watch --output-style compressed",
         "start": "react-scripts start",
