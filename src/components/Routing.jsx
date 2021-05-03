@@ -10,16 +10,16 @@ const Routing = ({ handleLocationHeader }) => (
 		<Redirect 
 			exact
 			from='/'
-			to='/home'
+			to='/gralweb'
 		/>
 		<Route
 			exact
-			path='/home'
+			path='/gralweb'
 			render={ () => <RenderHome headerLocation={handleLocationHeader} pageTarget='1' /> }
 		/>
 		<Route
 			exact
-			path='/blog/:name'
+			path='/gralweb/blog/:name'
 			render={ routeProps => <RenderPresentacion idCart={ routeProps.match.params.name } /> }
 		/>
 	</Switch>

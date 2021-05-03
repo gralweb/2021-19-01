@@ -30,7 +30,7 @@ const RenderData = ({ title, body, images }, scaleAnimBoolean, zoomOpen, zoomHan
 				</div> 
 			</div>
 
-			<div className='single-cont-titulo' onClick={ () => zoomHandleOpen() }>
+			<div className='single-cont-titulo'>
 				<h2>
 					{ title }
 				</h2>

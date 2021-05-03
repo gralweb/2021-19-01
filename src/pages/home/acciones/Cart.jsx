@@ -22,7 +22,7 @@ const Cart = ({ scaleAnim, img, titulo }) => (
             </div>
             <div className='cart-text-right'>
                 <p>
-                    <Link to={ `/blog/${ img }` }>
+                    <Link to={ `/gralweb/blog/${ img }` }>
                         <i className='icofont-long-arrow-right'></i>
                     </Link>
                 </p>

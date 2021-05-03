@@ -35,7 +35,7 @@ const Header = ({ menuOpen, onClick }) => {
         <header className='header'>
             <div className='header-cont-start'>
                 <div className='header-cont-logo'>
-                    <Link to='/home'>
+                    <Link to='/gralweb'>
                         {/*<img 
                             src={ `${ASSETS_URL}/logo/gral_${(tema) ? 'claro' : 'oscuro'}.png` }
                             id='header-location-logo' alt='Gral'

@@ -23,8 +23,7 @@ const RenderHome = () => {
 
 	}, [ setScaleAnim, store, actions ])
 	
-	if (store.carts.length < 1) return <p>cargando...</p>
-	// Loader()
+	if (store.carts.length < 1) return Loader()
 
 	return (
 		<div className='main-cont'>

@@ -19,7 +19,7 @@ const Zoom = ({ status, handle }) => {
 	return (
 		<div className={ status ? 'zoom-cont zoom' : 'zoom-cont' }>
 			<div className={ `zoom-cont-foto ${scale}` }>
-				<img src={`${ ASSETS_URL }/assets/9jpg`} alt='zoom' />
+				<img src={`${ ASSETS_URL }/assets/9.jpg`} alt='zoom' />
 			</div>
 
 			<div className={ `zoom-cont-close-btn ${scale}` } onClick={ () => handle() }>
