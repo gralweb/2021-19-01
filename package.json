@@ -16,6 +16,7 @@
     "scripts": {
         "predeploy": "yarn build",
         "deploy": "gh-pages -d build",
+        "clean": "gh-pages-clean",
         "sass": "node-sass src/dependencias/sass/index.scss src/dependencias/css/app.css --watch --output-style compressed",
         "start": "react-scripts start",
         "build": "react-scripts build",
